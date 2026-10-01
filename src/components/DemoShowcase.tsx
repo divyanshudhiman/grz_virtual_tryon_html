@@ -117,14 +117,20 @@ export function DemoShowcase({ placement = "default" }: DemoShowcaseProps) {
                 onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)}
                 onPlay={() => setPlaying(true)}
                 onPause={() => setPlaying(false)}
+                onLoadedData={() => setVideoFailed(false)}
                 onError={() => setVideoFailed(true)}
               />
               {videoFailed && (
-                <img
-                  src={publicAsset(active.posterSrc)}
-                  alt={active.title}
-                  className="absolute inset-0 h-full w-full bg-neutral-900 object-contain p-6"
-                />
+                <>
+                  <img
+                    src={publicAsset(active.posterSrc)}
+                    alt={active.title}
+                    className="absolute inset-0 h-full w-full bg-neutral-900 object-contain p-6"
+                  />
+                  <p className="absolute bottom-3 left-3 right-3 rounded-lg bg-black/75 px-3 py-2 text-center text-sm text-white">
+                    {DEMO_SECTION.videoError}
+                  </p>
+                </>
               )}
             </div>
             <div className="border-t border-white/10 bg-neutral-950 px-3 py-3 sm:px-4 sm:py-4">

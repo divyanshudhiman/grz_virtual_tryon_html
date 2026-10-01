@@ -54,6 +54,7 @@ export const DEMO_SECTION = {
   footnote: "These clips match the live fitting room. Your camera is only used when you open Try live.",
   sidebarLabel: "Pick a category",
   soundTip: "Tip: turn sound on to hear the session.",
+  videoError: "This video could not load. Try another category or refresh the page.",
 } as const;
 
 export const HOW_IT_WORKS = {

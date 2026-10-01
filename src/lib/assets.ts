@@ -1,8 +1,15 @@
 /** Encode only the last path segment (handles spaces in filenames). */
 function encodeLastSegment(path: string): string {
   const parts = path.split("/");
-  const last = parts.pop();
-  if (last) parts.push(encodeURIComponent(last));
+  let last = parts.pop();
+  if (last) {
+    try {
+      last = decodeURIComponent(last);
+    } catch {
+      /* keep raw segment */
+    }
+    parts.push(encodeURIComponent(last));
+  }
   return parts.join("/");
 }
 
@@ -23,5 +30,9 @@ export function publicAsset(path: string): string {
   }
 
   const base = normalizeBase(import.meta.env.BASE_URL);
+  if (normalized.startsWith("videos/")) {
+    return `${base}${encodeLastSegment(normalized)}`;
+  }
+
   return `${base}${normalized}`;
 }
