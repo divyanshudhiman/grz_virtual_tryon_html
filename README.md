@@ -45,8 +45,11 @@ After clone: `git lfs pull`
 
 ## GitHub Pages
 
-1. **Settings → Pages → Build and deployment:** Source = **GitHub Actions**
-2. Push to `main` — workflow builds with `VITE_BASE_PATH=/grz_virtual_tryon_html/` and deploys `dist/`
+1. Open [Repository Settings → Pages](https://github.com/divyanshudhiman/grz_virtual_tryon_html/settings/pages)
+2. **Build and deployment → Source:** **GitHub Actions**
+3. Push to `main` — workflow deploys the site (videos stream from the repo via Git LFS; they are not bundled in the Pages artifact)
+
+Site URL: **https://divyanshudhiman.github.io/grz_virtual_tryon_html/**
 
 ## Build locally
 

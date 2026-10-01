@@ -31,6 +31,10 @@ jobs:
       - run: npm run build
         env:
           VITE_BASE_PATH: /${{ github.event.repository.name }}/
+          VITE_VIDEO_BASE_URL: https://github.com/${{ github.repository }}/raw/main/public
+
+      - name: Shrink Pages artifact (videos served from Git LFS in repo)
+        run: rm -rf dist/videos
 
       - uses: actions/upload-pages-artifact@v3
         with:
