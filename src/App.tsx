@@ -5,6 +5,7 @@ import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { JourneySection } from "./components/JourneySection";
 import { PlatformSection } from "./components/PlatformSection";
+import { UseSection } from "./components/UseSection";
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Hero />
         <DemoShowcase />
         <FeatureGrid />
+        <UseSection />
         <PlatformSection />
         <JourneySection />
       </main>
