@@ -36,36 +36,33 @@ export function Hero() {
             </ul>
           </div>
 
-          <div className="mt-10 lg:mt-0">
+          <div className="mt-10 min-w-0 lg:mt-0">
             <p className="mb-3 text-center text-sm font-medium text-[var(--color-muted)] lg:text-left">
               {HERO.demoGridHint}
             </p>
             <a
               href="#demos"
-              className="group block grid grid-cols-2 gap-2 sm:gap-3 rounded-3xl p-1 transition-transform hover:scale-[1.01] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-brand)]"
+              className="group grid grid-cols-2 gap-2 sm:gap-3 rounded-3xl p-1 transition-transform hover:scale-[1.01] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-brand)]"
               aria-label="Jump to recorded demos"
             >
               {TRYON_DEMOS.map((demo, i) => (
                 <div
                   key={demo.id}
-                  className={`card-lift relative overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-[var(--color-line)] ${
-                    i === 0 ? "col-span-2 aspect-[2/1]" : "aspect-square"
-                  }`}
+                  className="card-lift relative aspect-square min-h-0 overflow-hidden rounded-2xl bg-[#ebe6e0] shadow-sm ring-1 ring-[var(--color-line)]"
                 >
                   <img
                     src={publicAsset(demo.thumbSrc)}
                     alt={`${demo.shortTitle} product preview`}
-                    className="h-full w-full object-contain p-3 sm:p-4"
+                    className="product-photo"
                     loading={i < 2 ? "eager" : "lazy"}
                     decoding="async"
-                    width={400}
-                    height={i === 0 ? 200 : 400}
+                    sizes="(max-width: 1024px) 45vw, 280px"
                   />
                   <span className="absolute bottom-2 left-2 rounded-full bg-[var(--color-ink)]/85 px-2.5 py-1 text-sm font-semibold text-white backdrop-blur-sm">
                     {demo.shortTitle}
                   </span>
                   {i === 0 ? (
-                    <span className="absolute right-3 top-3 flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-brand)] text-white shadow-lg">
+                    <span className="absolute right-2 top-2 flex h-9 w-9 items-center justify-center rounded-full bg-[var(--color-brand)] text-white shadow-lg sm:h-10 sm:w-10">
                       <span aria-hidden className="ml-0.5 text-sm">
                         ▶
                       </span>

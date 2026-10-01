@@ -100,12 +100,12 @@ export function DemoShowcase({ placement = "default" }: DemoShowcaseProps) {
           </PrimaryButton>
         </div>
 
-        <div className={`grid gap-6 lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-10 ${isTop ? "mt-8" : "mt-10"}`}>
+        <div className={`grid min-w-0 gap-6 lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-10 ${isTop ? "mt-8" : "mt-10"}`}>
           <div
             ref={panelRef}
-            className="overflow-hidden rounded-3xl bg-[#0a0a0a] shadow-2xl shadow-black/20 ring-1 ring-black/10"
+            className="min-w-0 overflow-hidden rounded-3xl bg-[#0a0a0a] shadow-2xl shadow-black/20 ring-1 ring-black/10"
           >
-            <div className="relative aspect-video w-full bg-neutral-900">
+            <div className="relative aspect-video w-full max-w-full bg-neutral-900">
               <video
                 ref={videoRef}
                 className="absolute inset-0 h-full w-full object-cover"
@@ -192,11 +192,12 @@ export function DemoShowcase({ placement = "default" }: DemoShowcaseProps) {
                         : "border-[var(--color-line)] bg-[var(--color-paper)] hover:border-[var(--color-brand)]/30 hover:shadow-sm"
                     }`}
                   >
-                    <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl bg-white ring-1 ring-black/5">
+                    <div className="relative h-[4.5rem] w-[4.5rem] shrink-0 overflow-hidden rounded-xl bg-[#ebe6e0] ring-1 ring-black/5 sm:h-16 sm:w-16">
                       <img
                         src={publicAsset(demo.thumbSrc)}
                         alt=""
-                        className="h-full w-full object-contain p-1.5"
+                        className="product-photo"
+                        sizes="72px"
                       />
                       <span
                         className={`absolute bottom-1 right-1 rounded-md px-1.5 py-0.5 text-[9px] font-bold tabular-nums ${

@@ -24,13 +24,14 @@ export function PlatformSection() {
             titleAccent={PLATFORM.titleAccent}
             body={PLATFORM.body}
           />
-          <div className="mt-8 hidden overflow-hidden rounded-2xl ring-1 ring-white/15 lg:mt-4 lg:block">
+          <div className="mt-8 hidden aspect-[4/5] max-h-80 overflow-hidden rounded-2xl ring-1 ring-white/15 lg:mt-4 lg:block">
             <img
               src={publicAsset(LIFESTYLE.boutiqueRacks)}
               alt="Neutral-toned clothing on boutique racks"
-              className="h-full max-h-72 w-full object-cover"
+              className="product-photo"
               loading="lazy"
               decoding="async"
+              sizes="340px"
             />
           </div>
         </div>

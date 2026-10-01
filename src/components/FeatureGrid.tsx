@@ -19,13 +19,14 @@ export function FeatureGrid() {
               key={item.title}
               className="card-lift overflow-hidden rounded-2xl border border-[var(--color-line)] bg-[var(--color-paper)] shadow-sm"
             >
-              <div className="relative aspect-[16/10] overflow-hidden bg-neutral-100">
+              <div className="relative aspect-[16/10] min-h-[10rem] overflow-hidden bg-[#ebe6e0] sm:min-h-0">
                 <img
                   src={publicAsset(item.image)}
                   alt=""
-                  className="h-full w-full object-cover"
+                  className="product-photo"
                   loading="lazy"
                   decoding="async"
+                  sizes="(max-width: 768px) 90vw, 380px"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)]/50 via-transparent to-transparent" />
               </div>

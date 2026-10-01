@@ -96,6 +96,15 @@
   box-shadow: 0 12px 40px -12px rgba(20, 18, 16, 0.15);
 }
 
+/* Product photos: cover + neutral fill so light SKUs stay visible */
+.product-photo {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  background: #ebe6e0;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
