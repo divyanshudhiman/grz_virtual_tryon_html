@@ -19,7 +19,7 @@ export function HowItWorksSection() {
             {HOW_IT_WORKS.integrationStages.map((stage, i) => (
               <li
                 key={stage.title}
-                className="card-lift relative rounded-2xl border border-[var(--color-line)] bg-white p-6 shadow-sm"
+                className="card-lift relative rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)] p-6 shadow-sm"
               >
                 {i < HOW_IT_WORKS.integrationStages.length - 1 ? (
                   <span
@@ -54,7 +54,7 @@ export function HowItWorksSection() {
           </p>
         </div>
 
-        <div className="mt-14 rounded-3xl border border-[var(--color-line)] bg-white p-6 sm:p-8 lg:p-10">
+        <div className="mt-14 rounded-3xl border border-[var(--color-line)] bg-[var(--color-surface)] p-6 sm:p-8 lg:p-10">
           <h3 className="text-sm font-semibold text-[var(--color-ink)]">{HOW_IT_WORKS.useLabel}</h3>
           <p className="mt-2 max-w-2xl text-base leading-relaxed text-[var(--color-muted)]">
             {HOW_IT_WORKS.useIntro}
@@ -73,7 +73,7 @@ export function HowItWorksSection() {
                 <ol className="mt-5 flex-1 space-y-3">
                   {path.steps.map((step, i) => (
                     <li key={step} className="flex gap-3 text-sm leading-relaxed text-[var(--color-ink)] sm:text-base">
-                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white text-[10px] font-bold text-[var(--color-brand)] ring-1 ring-[var(--color-line)]">
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--color-paper)] text-[10px] font-bold text-[var(--color-brand)] ring-1 ring-[var(--color-line)]">
                         {i + 1}
                       </span>
                       <span className="pt-0.5">{step}</span>

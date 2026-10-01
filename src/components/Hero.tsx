@@ -54,7 +54,7 @@ export function Hero() {
               {HERO.chips.map((chip) => (
                 <li
                   key={chip}
-                  className="rounded-full border border-[var(--color-line)] bg-white/80 px-3 py-1.5 text-sm font-medium text-[var(--color-ink)] shadow-sm backdrop-blur-sm"
+                  className="rounded-full border border-[var(--color-line)] bg-[var(--color-surface)]/80 px-3 py-1.5 text-sm font-medium text-[var(--color-ink)] shadow-sm backdrop-blur-sm"
                 >
                   {chip}
                 </li>

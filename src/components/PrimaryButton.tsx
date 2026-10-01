@@ -9,7 +9,7 @@ const styles: Record<Variant, string> = {
   outline:
     "border border-[var(--color-line)] bg-[var(--color-surface)] text-[var(--color-ink)] hover:border-[var(--color-brand)]/40 hover:bg-[var(--color-brand-soft)]",
   ghost:
-    "border border-transparent bg-transparent text-[var(--color-muted)] hover:border-[var(--color-line)] hover:bg-white hover:text-[var(--color-ink)]",
+    "border border-transparent bg-transparent text-[var(--color-muted)] hover:border-[var(--color-line)] hover:bg-[var(--color-surface)] hover:text-[var(--color-ink)]",
 };
 
 interface PrimaryButtonProps {

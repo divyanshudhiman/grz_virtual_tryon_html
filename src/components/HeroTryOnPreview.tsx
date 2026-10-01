@@ -45,12 +45,12 @@ export function HeroTryOnPreview() {
         className="group block overflow-hidden rounded-3xl ring-1 ring-[var(--color-line)] transition-shadow hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-brand)]"
         aria-label="Jump to recorded try-on demos"
       >
-        <div className="grid grid-cols-[minmax(0,38%)_minmax(0,1fr)] bg-white">
-          <div className="border-r border-[var(--color-line)] bg-[#ebe6e0] p-3 sm:p-4">
+        <div className="grid grid-cols-[minmax(0,38%)_minmax(0,1fr)] bg-[var(--color-surface)]">
+          <div className="border-r border-[var(--color-line)] bg-[var(--color-product-fill)] p-3 sm:p-4">
             <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-muted)]">
               {HERO.previewBeforeLabel}
             </p>
-            <div className="relative mt-2 aspect-[3/4] overflow-hidden rounded-xl bg-white">
+            <div className="relative mt-2 aspect-[3/4] overflow-hidden rounded-xl bg-[var(--color-surface)]">
               <img
                 src={publicAsset(featured.thumbSrc)}
                 alt=""

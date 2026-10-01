@@ -16,6 +16,17 @@
     />
     <meta property="og:image" content="/images/demos/cap.jpg" />
     <title>Virtual Try-On | See it on yourself</title>
+    <script>
+      (function () {
+        var key = "vto-presentation-theme";
+        var stored = localStorage.getItem(key);
+        var dark =
+          stored === "dark" ||
+          (stored !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.classList.toggle("dark", dark);
+        document.documentElement.style.colorScheme = dark ? "dark" : "light";
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

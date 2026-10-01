@@ -211,7 +211,7 @@ export function DemoShowcase({ placement = "default" }: DemoShowcaseProps) {
                         : "border-[var(--color-line)] bg-[var(--color-paper)] hover:border-[var(--color-brand)]/30 hover:shadow-sm"
                     }`}
                   >
-                    <div className="relative h-[4.5rem] w-[4.5rem] shrink-0 overflow-hidden rounded-xl bg-[#ebe6e0] ring-1 ring-black/5 sm:h-16 sm:w-16">
+                    <div className="relative h-[4.5rem] w-[4.5rem] shrink-0 overflow-hidden rounded-xl bg-[var(--color-product-fill)] ring-1 ring-black/5 sm:h-16 sm:w-16">
                       <img
                         src={publicAsset(demo.thumbSrc)}
                         alt=""

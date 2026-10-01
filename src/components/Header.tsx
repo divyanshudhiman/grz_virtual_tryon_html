@@ -1,6 +1,7 @@
 import { CTAS, SITE_NAV } from "../data/content";
 import { PrimaryButton } from "./PrimaryButton";
 import { MobileNav } from "./MobileNav";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function Header() {
   return (
@@ -18,14 +19,15 @@ export function Header() {
             <a
               key={item.href}
               href={item.href}
-              className="whitespace-nowrap rounded-full px-3 py-1.5 text-sm font-medium text-[var(--color-muted)] transition-colors hover:bg-white hover:text-[var(--color-ink)] hover:shadow-sm"
+              className="whitespace-nowrap rounded-full px-3 py-1.5 text-sm font-medium text-[var(--color-muted)] transition-colors hover:bg-[var(--color-surface)] hover:text-[var(--color-ink)] hover:shadow-sm"
             >
               {item.label}
             </a>
           ))}
         </nav>
 
-        <div className="ml-auto shrink-0">
+        <div className="ml-auto flex shrink-0 items-center gap-2">
+          <ThemeToggle />
           <PrimaryButton size="sm">{CTAS.liveShort}</PrimaryButton>
         </div>
       </div>

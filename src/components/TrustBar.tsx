@@ -3,7 +3,7 @@ import { PlatformLogos } from "./PlatformLogos";
 
 export function TrustBar() {
   return (
-    <div className="mt-8 rounded-2xl border border-[var(--color-line)] bg-white/90 px-4 py-4 shadow-sm">
+    <div className="mt-8 rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)]/90 px-4 py-4 shadow-sm">
       <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-muted)]">
         {TRUST.worksWith}
       </p>

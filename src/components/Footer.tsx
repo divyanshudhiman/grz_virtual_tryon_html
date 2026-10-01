@@ -5,7 +5,7 @@ export function Footer() {
   return (
     <footer className="bg-[var(--color-paper)]">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-8 rounded-2xl border border-[var(--color-line)] bg-white p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+        <div className="flex flex-col gap-8 rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)] p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
           <div>
             <p className="flex items-center gap-2 text-sm font-semibold tracking-tight">
               <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-[var(--color-brand)] to-[var(--color-brand-hover)] text-[10px] font-bold text-white">
