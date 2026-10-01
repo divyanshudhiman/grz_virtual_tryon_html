@@ -1,27 +1,61 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", system-ui, sans-serif;
-  --font-display: "Instrument Serif", Georgia, serif;
-  --color-ink: #0c0c0c;
-  --color-paper: #f7f5f2;
-  --color-muted: #6b6560;
-  --color-line: #e8e4df;
+  --font-sans: "Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --color-ink: #141210;
+  --color-paper: #faf8f5;
+  --color-muted: #5c5652;
+  --color-line: #e8e2da;
   --color-accent: #1a1a1a;
+  --color-brand: #c2410c;
+  --color-brand-hover: #9a3412;
+  --color-brand-soft: #fff4ed;
+  --color-surface: #ffffff;
 }
 
-html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-}
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    font-size: 100%;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    scroll-padding-top: 5.5rem;
+    text-size-adjust: 100%;
+  }
 
-body {
-  margin: 0;
-  overflow-x: hidden;
-  font-family: var(--font-sans);
-  background: var(--color-paper);
-  color: var(--color-ink);
-  -webkit-font-smoothing: antialiased;
+  body {
+    margin: 0;
+    overflow-x: hidden;
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.6;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: inherit;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+  }
+
+  p,
+  li,
+  button,
+  a,
+  label {
+    font-family: inherit;
+  }
+
+  button {
+    font-size: inherit;
+  }
 }
 
 #root {
@@ -29,11 +63,45 @@ body {
   overflow-x: clip;
 }
 
-.font-display {
-  font-family: var(--font-display);
+::selection {
+  background: var(--color-brand);
+  color: white;
 }
 
-::selection {
-  background: #0c0c0c;
-  color: #f7f5f2;
+.hero-glow {
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 20%, rgba(194, 65, 12, 0.08), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 10% 80%, rgba(20, 18, 16, 0.04), transparent 50%),
+    var(--color-paper);
+}
+
+.platform-glow {
+  background:
+    radial-gradient(ellipse 100% 80% at 50% -20%, rgba(255, 255, 255, 0.12), transparent 50%),
+    linear-gradient(165deg, #1c1917 0%, #0c0a09 100%);
+}
+
+.cta-glow {
+  background:
+    radial-gradient(ellipse 70% 100% at 100% 50%, rgba(194, 65, 12, 0.25), transparent 55%),
+    linear-gradient(135deg, #1c1917 0%, #292524 100%);
+}
+
+.card-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px -12px rgba(20, 18, 16, 0.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .card-lift:hover {
+    transform: none;
+  }
 }

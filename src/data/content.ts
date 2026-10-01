@@ -5,13 +5,12 @@ export const CTAS = {
   demos: "See recorded demos",
 } as const;
 
-/** Nav order matches page scroll order. */
+/** Nav order matches page scroll order (proof first, then value & depth). */
 export const SITE_NAV = [
   { href: "#experience", label: "Overview" },
   { href: "#demos", label: "Demos" },
-  { href: "#journey", label: "How it works" },
-  { href: "#use", label: "How to use" },
   { href: "#platform", label: "Benefits" },
+  { href: "#how-it-works", label: "How it works" },
   { href: "#features", label: "Why it helps" },
 ] as const;
 
@@ -20,21 +19,25 @@ export const HERO = {
   title: "See it on yourself before you buy.",
   titleAccent: "A digital fitting room in your browser.",
   body: "Customers pick a product, turn on their camera, and preview caps, hoodies, tees, and glasses on themselves—like an in-store mirror, from any device.",
-  tagline: "Web · Mobile · In-store kiosk",
+  chips: ["Works in the browser", "Phone & tablet friendly", "Great for store kiosks"],
+  demoGridHint: "Sample products — tap to watch try-on videos",
 } as const;
 
 export const FEATURES = [
   {
+    icon: "✨",
     eyebrow: "Help customers decide",
     title: "Replace guesswork with a quick mirror moment.",
     body: "Shoppers check color, shape, and overall look before they add to cart or ask for help.",
   },
   {
+    icon: "👕",
     eyebrow: "Show more of your range",
     title: "Let more products get a fair try.",
     body: "Flip through tops, outerwear, hats, and eyewear in one visit—no dressing-room queue.",
   },
   {
+    icon: "🤝",
     eyebrow: "Support your sales team",
     title: "Start with what caught their eye.",
     body: "Use the styles they preview to guide size advice, alternatives, or the right product page.",
@@ -42,22 +45,37 @@ export const FEATURES = [
 ] as const;
 
 export const DEMO_SECTION = {
-  eyebrow: "Step 1 · Proof",
+  eyebrow: "Step 1 · See it in action",
   title: "Watch recorded",
   titleAccent: "try-on sessions.",
-  body: "Four real categories—caps, hoodies, t-shirts, glasses. Select a chapter, then open the live room when you are ready to use your own camera.",
+  bodyTop: "Pick a category below—caps, hoodies, tees, or glasses—then try the live room with your camera.",
+  body: "Four categories—caps, hoodies, t-shirts, glasses. Pick a chapter, then open the live room when you want to use your own camera.",
   nowPlaying: "Now playing",
-  footnote: "Recordings mirror the production fitting room. Live mode uses your camera.",
+  footnote: "These clips match the live fitting room. Your camera is only used when you open Try live.",
+  sidebarLabel: "Pick a category",
+  soundTip: "Tip: turn sound on to hear the session.",
 } as const;
 
-export const USE_GUIDE = {
-  eyebrow: "Step 3 · Deployment",
-  title: "How you can",
-  titleAccent: "use this.",
-  intro: "Same product, three entry points—shopper trial, storefront integration, or stakeholder demo.",
+export const HOW_IT_WORKS = {
+  eyebrow: "Step 3 · Flow & rollout",
+  title: "How it works",
+  titleAccent: "and where you use it.",
+  intro: "One browser session for shoppers—three practical ways to roll it out for your team.",
+  flowLabel: "In a session",
+  flowSteps: [
+    "Fitting room opens in the browser",
+    "Customer selects a product",
+    "Camera permission (one prompt)",
+    "Live preview on video",
+    "Switch products in the same session",
+    "Session ends; camera turns off",
+  ],
+  useLabel: "Where it fits",
+  useIntro: "Same experience whether you are testing, selling, or presenting.",
   paths: [
     {
       id: "shopper",
+      icon: "🔗",
       title: "Customer trial",
       summary: "One link, one session, immediate preview.",
       steps: [
@@ -68,6 +86,7 @@ export const USE_GUIDE = {
     },
     {
       id: "store",
+      icon: "🛍️",
       title: "Store & website",
       summary: "Embed the flow in the purchase path.",
       steps: [
@@ -78,10 +97,11 @@ export const USE_GUIDE = {
     },
     {
       id: "share",
+      icon: "📽️",
       title: "Presentations",
       summary: "Use this page in reviews and pitches.",
       steps: [
-        "Walk through Demos, then How it works.",
+        "Start with recorded Demos, then Benefits.",
         "Open the live room for a group try-on moment.",
         "Bookmark this URL for partners and internal teams.",
       ],
@@ -89,23 +109,8 @@ export const USE_GUIDE = {
   ],
 } as const;
 
-export const JOURNEY = {
-  eyebrow: "Step 2 · Flow",
-  title: "What happens",
-  titleAccent: "in a session.",
-  intro: "End-to-end shopper flow—no app install.",
-  steps: [
-    "Fitting room opens in the browser",
-    "Customer selects a product",
-    "Camera permission (one prompt)",
-    "Live preview on video",
-    "Switch products in the same session",
-    "Session ends; camera turns off",
-  ],
-} as const;
-
 export const PLATFORM = {
-  eyebrow: "Step 4 · Outcomes",
+  eyebrow: "Step 2 · Outcomes",
   title: "What you get",
   titleAccent: "out of the box.",
   body: "Live preview, short sessions, and catalog patterns that match how fashion is sold online and in store.",
@@ -150,7 +155,7 @@ export const PLATFORM_PILLARS = [
 
 export const CTA_BAND = {
   title: "Ready to try with your camera?",
-  body: "Open the live fitting room on the deployed demo, or replay recorded sessions above.",
+  body: "Open the live fitting room on the deployed demo, or replay the recorded sessions in Demos.",
 } as const;
 
 export const FOOTER = {

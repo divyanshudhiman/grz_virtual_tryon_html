@@ -5,11 +5,10 @@ type Variant = "solid" | "outline" | "ghost";
 
 const styles: Record<Variant, string> = {
   solid:
-    "bg-[var(--color-ink)] text-white hover:opacity-90 shadow-sm",
+    "bg-[var(--color-brand)] text-white hover:bg-[var(--color-brand-hover)] shadow-md shadow-[var(--color-brand)]/20",
   outline:
-    "border border-[var(--color-line)] bg-white text-[var(--color-ink)] hover:border-[var(--color-muted)]",
-  ghost:
-    "text-[var(--color-muted)] hover:text-[var(--color-ink)] underline-offset-4 hover:underline",
+    "border border-[var(--color-line)] bg-[var(--color-surface)] text-[var(--color-ink)] hover:border-[var(--color-brand)]/40 hover:bg-[var(--color-brand-soft)]",
+  ghost: "text-[var(--color-muted)] hover:text-[var(--color-ink)] underline-offset-4 hover:underline",
 };
 
 interface PrimaryButtonProps {
@@ -29,13 +28,27 @@ export function PrimaryButton({
   className = "",
   children,
 }: PrimaryButtonProps) {
-  const sizeClass = size === "sm" ? "px-3.5 py-2 text-[12px]" : "px-5 py-2.5 text-[13px] sm:px-6 sm:py-3 sm:text-sm";
-  const base = `inline-flex items-center justify-center rounded-full font-semibold transition-all ${sizeClass} ${styles[variant]} ${className}`;
+  const sizeClass =
+    size === "sm"
+      ? "min-h-9 px-4 py-2 text-sm sm:min-h-0"
+      : "min-h-11 px-5 py-2.5 text-base sm:min-h-10 sm:px-6 sm:py-3";
+  const base = `inline-flex items-center justify-center gap-1.5 rounded-full font-semibold transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-brand)] ${sizeClass} ${styles[variant]} ${className}`;
+
+  const content = (
+    <>
+      {children}
+      {external && variant === "solid" ? (
+        <span aria-hidden className="text-white/80">
+          ↗
+        </span>
+      ) : null}
+    </>
+  );
 
   if (external) {
     return (
       <a href={href} target="_blank" rel="noopener noreferrer" className={base}>
-        {children}
+        {content}
       </a>
     );
   }

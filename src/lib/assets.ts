@@ -6,6 +6,13 @@ function encodeLastSegment(path: string): string {
   return parts.join("/");
 }
 
+function normalizeBase(base: string): string {
+  if (!base) return "/";
+  let b = base.startsWith("/") ? base : `/${base}`;
+  if (!b.endsWith("/")) b += "/";
+  return b;
+}
+
 /** Resolve public folder paths for GitHub Pages base URL. */
 export function publicAsset(path: string): string {
   const normalized = path.replace(/^\//, "");
@@ -15,6 +22,6 @@ export function publicAsset(path: string): string {
     return `${videoBase}/${encodeLastSegment(normalized)}`;
   }
 
-  const base = import.meta.env.BASE_URL;
+  const base = normalizeBase(import.meta.env.BASE_URL);
   return `${base}${normalized}`;
 }
