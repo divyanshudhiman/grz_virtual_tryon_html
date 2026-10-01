@@ -100,15 +100,19 @@ export function DemoShowcase({ placement = "default" }: DemoShowcaseProps) {
           </PrimaryButton>
         </div>
 
-        <div className={`grid min-w-0 gap-6 lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-10 ${isTop ? "mt-8" : "mt-10"}`}>
+        <div
+          className={`grid w-full min-w-0 grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,18.75rem)] lg:gap-10 ${
+            isTop ? "mt-8" : "mt-10"
+          }`}
+        >
           <div
             ref={panelRef}
-            className="min-w-0 overflow-hidden rounded-3xl bg-[#0a0a0a] shadow-2xl shadow-black/20 ring-1 ring-black/10"
+            className="min-w-0 max-w-full overflow-hidden rounded-3xl bg-[#0a0a0a] shadow-2xl shadow-black/20 ring-1 ring-black/10"
           >
-            <div className="relative aspect-video w-full max-w-full bg-neutral-900">
+            <div className="demo-video-frame relative aspect-video w-full max-w-full bg-neutral-900">
               <video
                 ref={videoRef}
-                className="absolute inset-0 h-full w-full object-cover"
+                className="absolute inset-0 h-full w-full max-h-full max-w-full object-contain sm:object-cover"
                 playsInline
                 loop
                 muted={muted}
@@ -134,56 +138,65 @@ export function DemoShowcase({ placement = "default" }: DemoShowcaseProps) {
               )}
             </div>
             <div className="border-t border-white/10 bg-neutral-950 px-3 py-3 sm:px-4 sm:py-4">
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                <div className="min-w-0">
+              <div className="flex min-w-0 flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <div className="min-w-0 flex-1">
                   <p className="text-xs font-semibold text-white/60">{DEMO_SECTION.nowPlaying}</p>
                   <p className="truncate text-base font-semibold text-white">{active.title}</p>
                   {muted ? (
                     <p className="mt-1 text-sm text-[var(--color-brand)]/90">{DEMO_SECTION.soundTip}</p>
                   ) : null}
                 </div>
-                <div className="flex flex-wrap items-center gap-2 sm:justify-end">
+                <div className="demo-video-controls flex min-w-0 max-w-full shrink-0 items-center gap-2 overflow-x-auto pb-0.5 sm:flex-wrap sm:justify-end sm:overflow-visible sm:pb-0">
                   <button
                     type="button"
                     onClick={togglePlay}
                     aria-label={playing ? "Pause video" : "Play video"}
-                    className="min-h-10 rounded-full bg-white/15 px-4 py-2 text-sm font-semibold text-white hover:bg-white/25"
+                    className="min-h-10 shrink-0 rounded-full bg-white/15 px-3 py-2 text-sm font-semibold text-white hover:bg-white/25 sm:px-4"
                   >
-                    {playing ? "⏸ Pause" : "▶ Play"}
+                    <span className="sm:hidden" aria-hidden>
+                      {playing ? "⏸" : "▶"}
+                    </span>
+                    <span className="hidden sm:inline">{playing ? "⏸ Pause" : "▶ Play"}</span>
                   </button>
-                  <span className="rounded-full bg-white/10 px-3 py-2 tabular-nums text-sm text-white/80">
+                  <span className="shrink-0 rounded-full bg-white/10 px-2.5 py-2 tabular-nums text-xs text-white/80 sm:px-3 sm:text-sm">
                     {formatTime(currentTime)} / {formatTime(duration || 0)}
                   </span>
                   <button
                     type="button"
                     onClick={toggleMute}
                     aria-label={muted ? "Turn sound on" : "Turn sound off"}
-                    className={`min-h-10 rounded-full px-4 py-2 text-sm font-semibold ${
+                    className={`min-h-10 shrink-0 rounded-full px-3 py-2 text-sm font-semibold sm:px-4 ${
                       muted
                         ? "bg-[var(--color-brand)]/90 text-white hover:bg-[var(--color-brand)]"
                         : "bg-white/15 text-white hover:bg-white/25"
                     }`}
                   >
-                    {muted ? "🔇 Sound off" : "🔊 Sound on"}
+                    <span className="sm:hidden" aria-hidden>
+                      {muted ? "🔇" : "🔊"}
+                    </span>
+                    <span className="hidden sm:inline">{muted ? "🔇 Sound off" : "🔊 Sound on"}</span>
                   </button>
                   <button
                     type="button"
                     onClick={toggleFullscreen}
                     aria-label="Full screen"
-                    className="min-h-10 rounded-full bg-white/15 px-4 py-2 text-sm font-semibold text-white hover:bg-white/25"
+                    className="min-h-10 shrink-0 rounded-full bg-white/15 px-3 py-2 text-sm font-semibold text-white hover:bg-white/25 sm:px-4"
                   >
-                    Full screen
+                    <span className="sm:hidden" aria-hidden>
+                      ⛶
+                    </span>
+                    <span className="hidden sm:inline">Full screen</span>
                   </button>
                 </div>
               </div>
             </div>
           </div>
 
-          <div>
+          <div className="min-w-0 max-w-full">
             <p className="mb-3 text-sm font-semibold text-[var(--color-ink)]">
               {DEMO_SECTION.sidebarLabel}
             </p>
-            <div className="flex gap-2 overflow-x-auto pb-1 snap-x snap-mandatory [scrollbar-width:none] lg:flex-col lg:overflow-visible lg:pb-0 [&::-webkit-scrollbar]:hidden">
+            <div className="demo-chapter-rail -mx-4 flex gap-2 overflow-x-auto px-4 pb-1 snap-x snap-mandatory [scrollbar-width:none] sm:-mx-6 sm:px-6 lg:mx-0 lg:flex lg:flex-col lg:overflow-visible lg:px-0 lg:pb-0 [&::-webkit-scrollbar]:hidden">
               {TRYON_DEMOS.map((demo) => {
                 const isActive = demo.id === active.id;
                 return (
@@ -192,7 +205,7 @@ export function DemoShowcase({ placement = "default" }: DemoShowcaseProps) {
                     type="button"
                     onClick={() => loadDemo(demo)}
                     aria-current={isActive ? "true" : undefined}
-                    className={`group flex w-full min-w-[260px] shrink-0 snap-start items-center gap-3 rounded-2xl border p-3 text-left transition-all lg:min-w-0 lg:shrink ${
+                    className={`group flex w-[min(100%,17.5rem)] shrink-0 snap-center items-center gap-3 rounded-2xl border p-3 text-left transition-all max-lg:max-w-[calc(100vw-2rem)] lg:w-full lg:max-w-none lg:snap-none ${
                       isActive
                         ? "border-[var(--color-brand)] bg-[var(--color-brand-soft)] shadow-md ring-2 ring-[var(--color-brand)]/30"
                         : "border-[var(--color-line)] bg-[var(--color-paper)] hover:border-[var(--color-brand)]/30 hover:shadow-sm"

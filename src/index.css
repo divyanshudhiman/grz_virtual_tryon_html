@@ -113,6 +113,24 @@
   box-sizing: border-box;
 }
 
+/* Demo player: stay inside viewport on narrow screens */
+.demo-video-frame {
+  contain: layout style;
+}
+
+.demo-video-controls {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.demo-video-controls::-webkit-scrollbar {
+  display: none;
+}
+
+.demo-chapter-rail {
+  overscroll-behavior-x: contain;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
