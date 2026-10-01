@@ -2,20 +2,18 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main, master]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
   group: pages
   cancel-in-progress: true
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -24,28 +22,25 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
           cache: npm
 
       - run: npm ci
-      - run: npm run build
-        env:
-          VITE_BASE_PATH: /${{ github.event.repository.name }}/
-          VITE_VIDEO_BASE_URL: https://github.com/${{ github.repository }}/raw/main/public
 
-      - name: Shrink Pages artifact (videos served from Git LFS in repo)
+      - name: Build site
+        run: npm run build
+        env:
+          VITE_BASE_PATH: /grz_virtual_tryon_html/
+          VITE_VIDEO_BASE_URL: https://github.com/divyanshudhiman/grz_virtual_tryon_html/raw/main/public
+
+      - name: Shrink deploy bundle (videos load from repo, not Pages artifact)
         run: rm -rf dist/videos
 
-      - uses: actions/upload-pages-artifact@v3
+      - name: Deploy to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          path: dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages
+          force_orphan: true
+          commit_message: "Deploy site from ${{ github.sha }}"

@@ -45,9 +45,7 @@ After clone: `git lfs pull`
 
 ## GitHub Pages
 
-1. Open [Repository Settings → Pages](https://github.com/divyanshudhiman/grz_virtual_tryon_html/settings/pages)
-2. **Build and deployment → Source:** **GitHub Actions**
-3. Push to `main` — workflow deploys the site (videos stream from the repo via Git LFS; they are not bundled in the Pages artifact)
+**First time:** follow **[DEPLOY.md](./DEPLOY.md)** (enable Pages → branch `gh-pages` → re-run Actions).
 
 Site URL: **https://divyanshudhiman.github.io/grz_virtual_tryon_html/**
 
