@@ -1,4 +1,5 @@
 import { HOW_IT_WORKS } from "../data/content";
+import { INTEGRATION_LINKS } from "../data/links";
 import { SectionHeading } from "./SectionHeading";
 
 export function HowItWorksSection() {
@@ -13,20 +14,44 @@ export function HowItWorksSection() {
         />
 
         <div className="mt-12">
-          <h3 className="text-sm font-semibold text-[var(--color-ink)]">{HOW_IT_WORKS.flowLabel}</h3>
-          <ol className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {HOW_IT_WORKS.flowSteps.map((step, i) => (
+          <h3 className="text-sm font-semibold text-[var(--color-ink)]">{HOW_IT_WORKS.rolloutLabel}</h3>
+          <ol className="mt-6 grid gap-4 md:grid-cols-3">
+            {HOW_IT_WORKS.integrationStages.map((stage, i) => (
               <li
-                key={step}
-                className="card-lift relative rounded-2xl border border-[var(--color-line)] bg-white p-5 pl-14 shadow-sm"
+                key={stage.title}
+                className="card-lift relative rounded-2xl border border-[var(--color-line)] bg-white p-6 shadow-sm"
               >
-                <span className="absolute left-4 top-5 flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-[var(--color-brand)] to-[var(--color-brand-hover)] text-[12px] font-bold text-white shadow-sm">
-                  {i + 1}
+                {i < HOW_IT_WORKS.integrationStages.length - 1 ? (
+                  <span
+                    className="absolute -right-2 top-1/2 hidden h-0.5 w-4 bg-[var(--color-line)] md:block lg:w-6"
+                    aria-hidden
+                  />
+                ) : null}
+                <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--color-brand)] text-sm font-bold text-white">
+                  {stage.step}
                 </span>
-                <p className="text-base font-medium leading-snug text-[var(--color-ink)]">{step}</p>
+                <h4 className="mt-4 text-lg font-semibold text-[var(--color-ink)]">{stage.title}</h4>
+                <p className="mt-1 text-sm font-medium text-[var(--color-brand)]">{stage.summary}</p>
+                <p className="mt-3 text-sm leading-relaxed text-[var(--color-muted)]">{stage.detail}</p>
               </li>
             ))}
           </ol>
+          <p className="mt-4 text-sm text-[var(--color-muted)]">
+            Shopify merchants can start from the{" "}
+            <a
+              href={INTEGRATION_LINKS.shopify}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-[var(--color-brand)] underline-offset-2 hover:underline"
+            >
+              Shopify App Store
+            </a>
+            ; headless and custom stacks use the{" "}
+            <a href={INTEGRATION_LINKS.customApi} className="font-semibold text-[var(--color-brand)] underline-offset-2 hover:underline">
+              API embed path
+            </a>
+            .
+          </p>
         </div>
 
         <div className="mt-14 rounded-3xl border border-[var(--color-line)] bg-white p-6 sm:p-8 lg:p-10">

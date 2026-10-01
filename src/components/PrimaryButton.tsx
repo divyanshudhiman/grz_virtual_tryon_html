@@ -8,7 +8,8 @@ const styles: Record<Variant, string> = {
     "bg-[var(--color-brand)] text-white hover:bg-[var(--color-brand-hover)] shadow-md shadow-[var(--color-brand)]/20",
   outline:
     "border border-[var(--color-line)] bg-[var(--color-surface)] text-[var(--color-ink)] hover:border-[var(--color-brand)]/40 hover:bg-[var(--color-brand-soft)]",
-  ghost: "text-[var(--color-muted)] hover:text-[var(--color-ink)] underline-offset-4 hover:underline",
+  ghost:
+    "border border-transparent bg-transparent text-[var(--color-muted)] hover:border-[var(--color-line)] hover:bg-white hover:text-[var(--color-ink)]",
 };
 
 interface PrimaryButtonProps {

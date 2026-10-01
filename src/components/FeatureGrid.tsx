@@ -1,4 +1,4 @@
-import { FEATURES } from "../data/content";
+import { FEATURES, FEATURES_SECTION } from "../data/content";
 import { publicAsset } from "../lib/assets";
 import { SectionHeading } from "./SectionHeading";
 
@@ -7,10 +7,10 @@ export function FeatureGrid() {
     <section id="features" className="border-b border-[var(--color-line)] bg-[var(--color-surface)]">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
         <SectionHeading
-          eyebrow="Why it helps"
-          title="Less imagining."
-          titleAccent="More trying."
-          body="Photos show the product; try-on shows the product on the person—before they commit to a size or SKU."
+          eyebrow={FEATURES_SECTION.eyebrow}
+          title={FEATURES_SECTION.title}
+          titleAccent={FEATURES_SECTION.titleAccent}
+          body={FEATURES_SECTION.body}
         />
 
         <div className="mt-12 grid gap-6 md:grid-cols-3">

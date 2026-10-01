@@ -36,7 +36,7 @@ export function SectionHeading({
         {titleAccent ? (
           <span
             className={`mt-2 block text-xl font-medium leading-snug sm:text-[1.75rem] ${
-              isDark ? "text-white/75" : "text-[var(--color-muted)]"
+              isDark ? "text-stone-300" : "text-[var(--color-muted)]"
             }`}
           >
             {titleAccent}
@@ -46,7 +46,7 @@ export function SectionHeading({
       {body ? (
         <p
           className={`mt-4 max-w-2xl text-base leading-relaxed ${
-            isDark ? "text-white/78" : "text-[var(--color-muted)]"
+            isDark ? "text-stone-200" : "text-[var(--color-muted)]"
           }`}
         >
           {body}

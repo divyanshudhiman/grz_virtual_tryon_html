@@ -105,6 +105,14 @@
   background: #ebe6e0;
 }
 
+/* Eyewear product shots — keep frames centered in square tiles */
+.product-photo--contain {
+  object-fit: contain;
+  object-position: center center;
+  padding: 0.65rem;
+  box-sizing: border-box;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

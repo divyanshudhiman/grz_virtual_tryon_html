@@ -202,7 +202,9 @@ export function DemoShowcase({ placement = "default" }: DemoShowcaseProps) {
                       <img
                         src={publicAsset(demo.thumbSrc)}
                         alt=""
-                        className="product-photo"
+                        className={
+                          demo.id === "glasses" ? "product-photo product-photo--contain" : "product-photo"
+                        }
                         sizes="72px"
                       />
                       <span

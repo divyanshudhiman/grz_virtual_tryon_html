@@ -1,8 +1,24 @@
 /** Single source for CTA labels — one primary action sitewide. */
 export const CTAS = {
-  live: "Open live fitting room",
-  liveShort: "Try live",
-  demos: "See recorded demos",
+  live: "Try live demo",
+  liveShort: "Try demo",
+  demos: "Watch recorded demos",
+  integrationGuide: "Integration guide",
+  bookCall: "Book a call",
+} as const;
+
+export const TRUST = {
+  worksWith: "Works with your stack",
+  highlight: "+28% avg. conversion lift in pilot programs*",
+  disclaimer:
+    "*Illustrative outcomes from early deployments; results vary by category, traffic, and catalog.",
+} as const;
+
+export const FEATURES_SECTION = {
+  eyebrow: "Why it helps",
+  title: "Less abandonment.",
+  titleAccent: "More confidence.",
+  body: "Try-on gives store owners a clearer path from product view to purchase—and gives shoppers a reason to stay on site.",
 } as const;
 
 /** Nav order matches page scroll order (proof first, then value & depth). */
@@ -14,41 +30,46 @@ export const SITE_NAV = [
   { href: "#features", label: "Why it helps" },
 ] as const;
 
+/** Primary audience: brands & retailers evaluating try-on for their store. */
 export const HERO = {
-  eyebrow: "Virtual try-on for online shopping",
-  title: "See it on yourself before you buy.",
-  titleAccent: "A digital fitting room in your browser.",
-  body: "Customers pick a product, turn on their camera, and preview caps, hoodies, tees, and glasses on themselves—like an in-store mirror, from any device.",
-  chips: ["Works in the browser", "Phone & tablet friendly", "Great for store kiosks"],
-  demoGridHint: "Sample products — tap to watch try-on videos",
+  eyebrow: "For fashion & eyewear brands",
+  title: "Give shoppers a fitting room online.",
+  titleAccent: "Fewer guesses, more confident purchases.",
+  body: "Browser-based virtual try-on helps customers see hats, tops, layers, and glasses on themselves before checkout—so your team can lift conversion and reduce fit-related returns.",
+  chips: ["No app install", "Works on mobile & desktop", "In-store tablets supported"],
+  previewBeforeLabel: "Catalog photo",
+  previewAfterLabel: "Virtual try-on",
+  previewCaption: "Recorded sessions below show the full experience—then open the live demo with your camera.",
+  livePreviewBadge: "Live try-on preview",
+  secondaryHint: "Prefer to watch first?",
 } as const;
 
 export const FEATURES = [
   {
     image: "images/lifestyle/boutique-racks.webp",
-    eyebrow: "Help customers decide",
-    title: "Replace guesswork with a quick mirror moment.",
-    body: "Shoppers check color, shape, and overall look before they add to cart or ask for help.",
+    eyebrow: "Conversion",
+    title: "Turn browsing into trying.",
+    body: "When shoppers can preview on themselves, they move from interest to add-to-cart with less hesitation.",
   },
   {
     image: "images/lifestyle/retail-floor.webp",
-    eyebrow: "Show more of your range",
-    title: "Let more products get a fair try.",
-    body: "Flip through tops, outerwear, hats, and eyewear in one visit—no dressing-room queue.",
+    eyebrow: "Returns",
+    title: "Fewer “not what I expected” moments.",
+    body: "Visual try-on sets clearer expectations on fit, color, and scale before the order ships.",
   },
   {
     image: "images/lifestyle/flatlay-gear.webp",
-    eyebrow: "Support your sales team",
-    title: "Start with what caught their eye.",
-    body: "Use the styles they preview to guide size advice, alternatives, or the right product page.",
+    eyebrow: "Merchandising",
+    title: "Show more SKUs without more floor space.",
+    body: "Let customers explore categories in one session—online, in-store on a tablet, or in a sales demo.",
   },
 ] as const;
 
 export const DEMO_SECTION = {
-  eyebrow: "Step 1 · See it in action",
+  eyebrow: "Step 1 · Proof",
   title: "Watch recorded",
   titleAccent: "try-on sessions.",
-  bodyTop: "Pick a category below—caps, hoodies, tees, or glasses—then try the live room with your camera.",
+  bodyTop: "Four categories—caps, hoodies, tees, glasses. Pick a chapter, then open the live demo when you are ready.",
   body: "Four categories—caps, hoodies, t-shirts, glasses. Pick a chapter, then open the live room when you want to use your own camera.",
   nowPlaying: "Now playing",
   footnote: "These clips match the live fitting room. Your camera is only used when you open Try live.",
@@ -58,108 +79,122 @@ export const DEMO_SECTION = {
 } as const;
 
 export const HOW_IT_WORKS = {
-  eyebrow: "Step 3 · Flow & rollout",
+  eyebrow: "Step 3 · Rollout",
   title: "How it works",
-  titleAccent: "and where you use it.",
-  intro: "One browser session for shoppers—three practical ways to roll it out for your team.",
-  flowLabel: "In a session",
-  flowSteps: [
-    "Fitting room opens in the browser",
-    "Customer selects a product",
-    "Camera permission (one prompt)",
-    "Live preview on video",
-    "Switch products in the same session",
-    "Session ends; camera turns off",
+  titleAccent: "for your store.",
+  intro: "Three stages to go live—no heavy IT project. Shoppers get a simple browser session on your PDPs.",
+  rolloutLabel: "Go live in 3 steps",
+  integrationStages: [
+    {
+      step: "1",
+      title: "Connect",
+      summary: "Install the widget or add your API key.",
+      detail: "Shopify app, storefront embed, or custom integration—same fitting room experience.",
+    },
+    {
+      step: "2",
+      title: "Catalog sync",
+      summary: "Map apparel & eyewear to try-on.",
+      detail: "Link SKUs to your product photos and category rules (hats, tops, layers, glasses).",
+    },
+    {
+      step: "3",
+      title: "Go live",
+      summary: "Shoppers try on from your PDPs.",
+      detail: "One camera prompt, live preview, switch products in the same session—camera off when they leave.",
+    },
   ],
-  useLabel: "Where it fits",
-  useIntro: "Same experience whether you are testing, selling, or presenting.",
+  useLabel: "Where you deploy it",
+  useIntro: "Same build whether you are piloting, launching, or presenting to stakeholders.",
   paths: [
     {
       id: "shopper",
       icon: "🔗",
-      title: "Customer trial",
-      summary: "One link, one session, immediate preview.",
+      title: "Pilot link",
+      summary: "Share one URL for internal or partner trials.",
       steps: [
-        "Share the live fitting room URL.",
-        "Customer picks a catalog item and allows the camera.",
-        "They compare looks and exit when done—the camera stops.",
+        "Send the live fitting room link.",
+        "User picks a catalog item and allows the camera.",
+        "They compare looks and exit—the camera stops.",
       ],
     },
     {
       id: "store",
       icon: "🛍️",
-      title: "Store & website",
-      summary: "Embed the flow in the purchase path.",
+      title: "Store & site",
+      summary: "Place try-on on the path to purchase.",
       steps: [
-        "Place “Try it on” on PDPs or collection pages.",
-        "Keep categories clear so choices stay scannable.",
-        "Use tablets in-store for items not on the floor.",
+        "Add “Try it on” on PDPs or collection pages.",
+        "Keep categories scannable.",
+        "Use fixed tablets in-store where needed.",
       ],
     },
     {
       id: "share",
       icon: "📽️",
-      title: "Presentations",
-      summary: "Use this page in reviews and pitches.",
+      title: "Sales & reviews",
+      summary: "Use this page in pitches and QBRs.",
       steps: [
-        "Start with recorded Demos, then Benefits.",
-        "Open the live room for a group try-on moment.",
-        "Bookmark this URL for partners and internal teams.",
+        "Walk through Demos, then Benefits.",
+        "Open the live demo for a group moment.",
+        "Bookmark for partners and leadership.",
       ],
     },
   ],
 } as const;
 
 export const PLATFORM = {
-  eyebrow: "Step 2 · Outcomes",
-  title: "What you get",
-  titleAccent: "out of the box.",
-  body: "Live preview, short sessions, and catalog patterns that match how fashion is sold online and in store.",
+  eyebrow: "Step 2 · Business value",
+  title: "What your store",
+  titleAccent: "gets from day one.",
+  body: "Live preview, short sessions, and category patterns that match how fashion and eyewear are sold—without a native app.",
 } as const;
 
 export const PLATFORM_STATS = [
-  { label: "Preview updates as the customer moves", value: "Live" },
-  { label: "Typical time for one try-on turn", value: "~30 sec" },
-  { label: "Demo categories on this site", value: "4" },
-  { label: "App install required", value: "No" },
+  { label: "Fewer sizing & style mismatches (target)", value: "~30%" },
+  { label: "Return-rate reduction potential", value: "Lower" },
+  { label: "On-site time & engagement", value: "Higher" },
+  { label: "Add-to-cart conversion lift (pilots)*", value: "+28%" },
 ] as const;
 
 export const PLATFORM_PILLARS = [
   {
-    title: "For shoppers",
+    title: "Revenue",
     items: [
-      "Browse hats, tops, jackets, and glasses in one place",
-      "Turn on the camera once and preview right away",
-      "Switch products without starting over",
-      "Shop with more confidence",
+      "Stronger path from product page to decision",
+      "More SKUs get a visual trial per visit",
+      "Upsell with what they already previewed",
+      "Works alongside your existing catalog photos",
     ],
   },
   {
-    title: "For your team",
+    title: "Operations",
     items: [
-      "Organize by category and highlight new items",
-      "Use existing product photography",
-      "Support recommendations with a visual anchor",
-      "Link to your live store experience",
+      "Organize by category and highlights",
+      "Reuse standard product photography",
+      "Short sessions for queues and kiosks",
+      "Camera on only during try-on",
     ],
   },
   {
-    title: "Built for daily use",
+    title: "Experience",
     items: [
       "Phones, tablets, and desktop browsers",
-      "Short sessions for fair queueing",
-      "Clear errors for camera or connection issues",
-      "Camera active only during try-on",
+      "Clear prompts for camera access",
+      "Switch products in one session",
+      "Plain-language errors when something fails",
     ],
   },
 ] as const;
 
 export const CTA_BAND = {
-  title: "Ready to try with your camera?",
-  body: "Open the live fitting room on the deployed demo, or replay the recorded sessions in Demos.",
+  title: "Try the live fitting room",
+  body: "Open the deployed demo with your camera—the same flow your customers would use on site.",
+  secondary: "Not ready for camera?",
+  secondaryLink: "Watch recorded demos first",
 } as const;
 
 export const FOOTER = {
-  body: "Presentation site for the virtual try-on experience.",
+  body: "Product demo for GRZ virtual try-on—share with merchants, partners, and internal teams.",
   legal: "Product demonstration",
 } as const;
