@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { DEMO_SECTION } from "../data/content";
+import { CTAS, DEMO_SECTION } from "../data/content";
 import { TRYON_DEMOS, type TryOnDemo } from "../data/demos";
-import { LIVE_TRY_ON_URL } from "../data/links";
 import { publicAsset } from "../lib/assets";
+import { PrimaryButton } from "./PrimaryButton";
 
 function formatTime(seconds: number) {
   const m = Math.floor(seconds / 60);
@@ -72,17 +72,22 @@ export function DemoShowcase() {
   return (
     <section id="demos" className="border-b border-[var(--color-line)] bg-white">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-        <div className="max-w-2xl">
-          <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--color-muted)]">
-            {DEMO_SECTION.eyebrow}
-          </p>
-          <h2 className="mt-3 text-[1.65rem] font-semibold leading-tight tracking-tight sm:text-4xl">
-            {DEMO_SECTION.title}
-            <span className="font-display block italic font-normal text-[var(--color-muted)]">
-              {DEMO_SECTION.titleAccent}
-            </span>
-          </h2>
-          <p className="mt-4 text-[15px] leading-relaxed text-[var(--color-muted)]">{DEMO_SECTION.body}</p>
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-2xl">
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--color-muted)]">
+              {DEMO_SECTION.eyebrow}
+            </p>
+            <h2 className="mt-3 text-[1.65rem] font-semibold leading-tight tracking-tight sm:text-4xl">
+              {DEMO_SECTION.title}
+              <span className="font-display block italic font-normal text-[var(--color-muted)]">
+                {DEMO_SECTION.titleAccent}
+              </span>
+            </h2>
+            <p className="mt-4 text-[15px] leading-relaxed text-[var(--color-muted)]">{DEMO_SECTION.body}</p>
+          </div>
+          <PrimaryButton size="sm" className="w-full shrink-0 lg:w-auto">
+            {CTAS.liveShort}
+          </PrimaryButton>
         </div>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-10">
@@ -195,17 +200,7 @@ export function DemoShowcase() {
           </div>
         </div>
 
-        <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-[12px] text-[var(--color-muted)]">{DEMO_SECTION.footnote}</p>
-          <a
-            href={LIVE_TRY_ON_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex w-full shrink-0 items-center justify-center rounded-full bg-[var(--color-ink)] px-5 py-2.5 text-[13px] font-semibold text-white transition-opacity hover:opacity-90 sm:w-auto"
-          >
-            {DEMO_SECTION.ctaLive}
-          </a>
-        </div>
+        <p className="mt-8 text-[12px] leading-relaxed text-[var(--color-muted)]">{DEMO_SECTION.footnote}</p>
       </div>
     </section>
   );
