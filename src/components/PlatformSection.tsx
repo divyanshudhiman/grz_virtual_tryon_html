@@ -1,17 +1,39 @@
 import { PLATFORM, PLATFORM_PILLARS, PLATFORM_STATS } from "../data/content";
+import { LIFESTYLE } from "../data/stockImages";
+import { publicAsset } from "../lib/assets";
 import { SectionHeading } from "./SectionHeading";
 
 export function PlatformSection() {
   return (
-    <section id="platform" className="platform-glow border-b border-black/20 text-[#f7f5f2]">
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-        <SectionHeading
-          tone="dark"
-          eyebrow={PLATFORM.eyebrow}
-          title={PLATFORM.title}
-          titleAccent={PLATFORM.titleAccent}
-          body={PLATFORM.body}
-        />
+    <section id="platform" className="platform-glow relative overflow-hidden border-b border-black/20 text-[#f7f5f2]">
+      <div
+        className="pointer-events-none absolute inset-0 opacity-20"
+        aria-hidden
+        style={{
+          backgroundImage: `url(${publicAsset(LIFESTYLE.retailFloor)})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      />
+      <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+        <div className="lg:grid lg:grid-cols-[1fr_340px] lg:items-start lg:gap-10">
+          <SectionHeading
+            tone="dark"
+            eyebrow={PLATFORM.eyebrow}
+            title={PLATFORM.title}
+            titleAccent={PLATFORM.titleAccent}
+            body={PLATFORM.body}
+          />
+          <div className="mt-8 hidden overflow-hidden rounded-2xl ring-1 ring-white/15 lg:mt-4 lg:block">
+            <img
+              src={publicAsset(LIFESTYLE.boutiqueRacks)}
+              alt="Neutral-toned clothing on boutique racks"
+              className="h-full max-h-72 w-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {PLATFORM_STATS.map((stat) => (

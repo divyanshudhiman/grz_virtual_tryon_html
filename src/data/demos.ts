@@ -18,8 +18,8 @@ export const TRYON_DEMOS: TryOnDemo[] = [
     shortTitle: "Caps",
     category: "Hats & accessories",
     videoSrc: "/videos/combine-%20caps.mp4",
-    posterSrc: "images/demos/cap.webp",
-    thumbSrc: "images/demos/cap.webp",
+    posterSrc: "images/demos/cap.jpg",
+    thumbSrc: "images/demos/cap.jpg",
     description: "See different cap styles on your look in seconds.",
   },
   {
@@ -29,8 +29,8 @@ export const TRYON_DEMOS: TryOnDemo[] = [
     shortTitle: "Hoodies",
     category: "Jackets & layers",
     videoSrc: "/videos/combine-hoodies.mp4",
-    posterSrc: "images/demos/hoodie.webp",
-    thumbSrc: "images/demos/hoodie.webp",
+    posterSrc: "images/demos/hoodie.jpg",
+    thumbSrc: "images/demos/hoodie.jpg",
     description: "Preview hoodies and outer layers while you move naturally.",
   },
   {
@@ -51,8 +51,8 @@ export const TRYON_DEMOS: TryOnDemo[] = [
     shortTitle: "Glasses",
     category: "Eyewear",
     videoSrc: "/videos/combinine-glasses.mp4",
-    posterSrc: "images/demos/glasses.webp",
-    thumbSrc: "images/demos/glasses.webp",
+    posterSrc: "images/demos/glasses.jpg",
+    thumbSrc: "images/demos/glasses.jpg",
     description: "Compare frames on your face without visiting a counter.",
   },
 ];

@@ -25,19 +25,19 @@ export const HERO = {
 
 export const FEATURES = [
   {
-    icon: "✨",
+    image: "images/lifestyle/boutique-racks.webp",
     eyebrow: "Help customers decide",
     title: "Replace guesswork with a quick mirror moment.",
     body: "Shoppers check color, shape, and overall look before they add to cart or ask for help.",
   },
   {
-    icon: "👕",
+    image: "images/lifestyle/retail-floor.webp",
     eyebrow: "Show more of your range",
     title: "Let more products get a fair try.",
     body: "Flip through tops, outerwear, hats, and eyewear in one visit—no dressing-room queue.",
   },
   {
-    icon: "🤝",
+    image: "images/lifestyle/flatlay-gear.webp",
     eyebrow: "Support your sales team",
     title: "Start with what caught their eye.",
     body: "Use the styles they preview to guide size advice, alternatives, or the right product page.",
