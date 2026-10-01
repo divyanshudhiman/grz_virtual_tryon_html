@@ -1,4 +1,6 @@
 import { FEATURES } from "../data/content";
+import { TRYON_DEMOS } from "../data/demos";
+import { publicAsset } from "../lib/assets";
 
 export function FeatureGrid() {
   return (
@@ -15,6 +17,22 @@ export function FeatureGrid() {
           A product photo shows the product. Live virtual try-on helps customers explore how a selected look
           appears on them before deciding what to try or buy next.
         </p>
+
+        <div className="mt-8 flex gap-2 overflow-x-auto pb-2 [scrollbar-width:none] md:justify-center [&::-webkit-scrollbar]:hidden">
+          {TRYON_DEMOS.map((demo) => (
+            <div
+              key={demo.id}
+              className="flex shrink-0 items-center gap-2 rounded-full border border-[var(--color-line)] bg-white py-1.5 pl-1.5 pr-3 shadow-sm"
+            >
+              <img
+                src={publicAsset(demo.thumbSrc)}
+                alt={demo.shortTitle}
+                className="h-10 w-10 rounded-full object-contain bg-neutral-50 p-0.5"
+              />
+              <span className="text-[12px] font-medium text-[var(--color-ink)]">{demo.shortTitle}</span>
+            </div>
+          ))}
+        </div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {FEATURES.map((item, i) => (

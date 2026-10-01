@@ -18,13 +18,16 @@ export function DemoShowcase() {
   const [muted, setMuted] = useState(true);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
+  const [videoFailed, setVideoFailed] = useState(false);
 
   const loadDemo = useCallback(
     (demo: TryOnDemo) => {
       setActive(demo);
+      setVideoFailed(false);
       const video = videoRef.current;
       if (!video) return;
       video.pause();
+      video.poster = publicAsset(demo.posterSrc);
       video.src = publicAsset(demo.videoSrc);
       video.load();
       video.play().catch(() => setPlaying(false));
@@ -87,17 +90,28 @@ export function DemoShowcase() {
             ref={panelRef}
             className="overflow-hidden rounded-2xl bg-[#0a0a0a] shadow-2xl ring-1 ring-black/10"
           >
-            <video
-              ref={videoRef}
-              className="aspect-video w-full object-cover"
-              playsInline
-              loop
-              muted={muted}
-              onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
-              onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)}
-              onPlay={() => setPlaying(true)}
-              onPause={() => setPlaying(false)}
-            />
+            <div className="relative aspect-video w-full bg-neutral-900">
+              <video
+                ref={videoRef}
+                className="absolute inset-0 h-full w-full object-cover"
+                playsInline
+                loop
+                muted={muted}
+                poster={publicAsset(active.posterSrc)}
+                onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
+                onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)}
+                onPlay={() => setPlaying(true)}
+                onPause={() => setPlaying(false)}
+                onError={() => setVideoFailed(true)}
+              />
+              {videoFailed && (
+                <img
+                  src={publicAsset(active.posterSrc)}
+                  alt={active.title}
+                  className="absolute inset-0 h-full w-full object-contain bg-neutral-900 p-6"
+                />
+              )}
+            </div>
             <div className="border-t border-white/10 bg-neutral-950 px-3 py-3 sm:px-4 sm:py-4">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div className="min-w-0">
@@ -145,19 +159,26 @@ export function DemoShowcase() {
                   key={demo.id}
                   type="button"
                   onClick={() => loadDemo(demo)}
-                  className={`group flex w-full min-w-[220px] shrink-0 snap-start items-start gap-3 rounded-xl border p-3 text-left transition-all lg:min-w-0 lg:shrink ${
+                  className={`group flex w-full min-w-[240px] shrink-0 snap-start items-center gap-3 rounded-xl border p-2.5 text-left transition-all lg:min-w-0 lg:shrink ${
                     isActive
                       ? "border-[var(--color-ink)] bg-[var(--color-ink)] text-white shadow-lg"
                       : "border-[var(--color-line)] bg-[var(--color-paper)] hover:border-[var(--color-muted)] hover:shadow-sm"
                   }`}
                 >
-                  <span
-                    className={`mt-0.5 text-[11px] font-bold tabular-nums ${
-                      isActive ? "text-white/70" : "text-[var(--color-muted)]"
-                    }`}
-                  >
-                    {demo.chapter}
-                  </span>
+                  <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg bg-white ring-1 ring-black/5">
+                    <img
+                      src={publicAsset(demo.thumbSrc)}
+                      alt=""
+                      className="h-full w-full object-contain p-1"
+                    />
+                    <span
+                      className={`absolute bottom-0.5 right-0.5 rounded px-1 text-[8px] font-bold tabular-nums ${
+                        isActive ? "bg-black/70 text-white" : "bg-white/90 text-neutral-600"
+                      }`}
+                    >
+                      {demo.chapter}
+                    </span>
+                  </div>
                   <span className="min-w-0 flex-1">
                     <span className="block text-[13px] font-semibold leading-snug">{demo.shortTitle}</span>
                     <span

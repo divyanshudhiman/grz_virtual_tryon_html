@@ -31,7 +31,7 @@ jobs:
         run: npm run build
         env:
           VITE_BASE_PATH: /grz_virtual_tryon_html/
-          VITE_VIDEO_BASE_URL: https://github.com/divyanshudhiman/grz_virtual_tryon_html/raw/main/public
+          VITE_VIDEO_BASE_URL: https://media.githubusercontent.com/media/divyanshudhiman/grz_virtual_tryon_html/main/public
 
       - name: Shrink deploy bundle (videos load from repo, not Pages artifact)
         run: rm -rf dist/videos
