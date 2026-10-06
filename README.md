@@ -36,6 +36,7 @@ Files live in `public/videos/` (tracked with **Git LFS**):
 
 | File | Demo |
 |------|------|
+| `Instantfit.mp4` | Intro — phone try-on |
 | `combine- caps.mp4` | Caps |
 | `combine-hoodies.mp4` | Hoodies |
 | `combine-t-shirt.mp4` | T-shirt |

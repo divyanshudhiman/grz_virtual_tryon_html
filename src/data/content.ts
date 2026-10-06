@@ -23,12 +23,23 @@ export const FEATURES_SECTION = {
 
 /** Nav order matches page scroll order (proof first, then value & depth). */
 export const SITE_NAV = [
+  { href: "#intro", label: "Intro" },
   { href: "#experience", label: "Overview" },
   { href: "#demos", label: "Demos" },
   { href: "#platform", label: "Benefits" },
   { href: "#how-it-works", label: "How it works" },
   { href: "#features", label: "Why it helps" },
 ] as const;
+
+export const INTRO_SECTION = {
+  eyebrow: "Phone try-on",
+  title: "Instant Fit from a phone.",
+  titleAccent: "The fitting room shoppers actually use.",
+  body: "Watch a mobile session: camera on, try the look on yourself, switch products in the same visit—no app to install.",
+  videoSrc: "videos/Instantfit.mp4",
+  videoLabel: "Instant Fit intro: virtual try-on from a phone",
+  videoError: "This intro video could not load. Refresh the page or check that Instantfit.mp4 is in public/videos.",
+} as const;
 
 /** Primary audience: brands & retailers evaluating try-on for their store. */
 export const HERO = {
@@ -39,9 +50,9 @@ export const HERO = {
   chips: ["No app install", "Works on mobile & desktop", "In-store tablets supported"],
   previewBeforeLabel: "Catalog photo",
   previewAfterLabel: "Virtual try-on",
-  previewCaption: "Recorded sessions below show the full experience—then open the live demo with your camera.",
+  previewCaption: "Category clips below go deeper on hats, layers, tops, and glasses—then open the live demo with your camera.",
   livePreviewBadge: "Live try-on preview",
-  secondaryHint: "Prefer to watch first?",
+  secondaryHint: "More category recordings:",
 } as const;
 
 export const FEATURES = [
@@ -135,7 +146,7 @@ export const HOW_IT_WORKS = {
       title: "Sales & reviews",
       summary: "Use this page in pitches and QBRs.",
       steps: [
-        "Walk through Demos, then Benefits.",
+        "Walk through Intro, then Demos and Benefits.",
         "Open the live demo for a group moment.",
         "Bookmark for partners and leadership.",
       ],
